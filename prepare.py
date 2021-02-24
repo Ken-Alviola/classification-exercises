@@ -12,5 +12,5 @@ def prep_iris(df):
     dropcols = ['species_id','measurement_id']
     df.drop(columns=dropcols, inplace=True)
     df.columns=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
-    dummies = pd.get_dummies(df['species'], drop_first=True)
+    dummies = pd.get_dummies(df[['species']], drop_first=False)
     return pd.concat([df, dummies], axis=1)
