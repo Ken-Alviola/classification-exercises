@@ -12,7 +12,7 @@ def clean_iris(df):
     '''
     df = df.drop(['species_id', 'measurement_id'], axis=1)
     df.rename(columns={'species_name': 'species'}, inplace=True)
-    dummies = pd.get_dummies(df[['species']], drop_first=True)
+    dummies = pd.get_dummies(df[['species']], drop_first=False)
     return pd.concat([df,dummies], axis=1)
 
 
